@@ -5,10 +5,11 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import com.example.ypa.R;
+import com.example.ypa.Utils;
+
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import io.github.froger.instamaterial.R;
-import io.github.froger.instamaterial.Utils;
 
 /**
  * Created by froger_mcs on 15.12.14.

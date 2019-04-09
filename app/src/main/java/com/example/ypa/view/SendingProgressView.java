@@ -20,11 +20,9 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.OvershootInterpolator;
 
-import io.github.froger.instamaterial.R;
+import com.example.ypa.R;
 
-/**
- * Created by Miroslaw Stanek on 28.02.15.
- */
+
 public class SendingProgressView extends View {
     public static final int STATE_NOT_STARTED = 0;
     public static final int STATE_PROGRESS_STARTED = 1;

@@ -11,9 +11,10 @@ import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
 
+import com.example.ypa.R;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import io.github.froger.instamaterial.R;
 
 /**
  * Created by Miroslaw Stanek on 09.12.2015.
