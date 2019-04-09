@@ -75,14 +75,11 @@ public class PublishActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 try {
-                    String sendmsg = "vision_write";
-                    EditText pEdit;
-                    String gEdit = "";
-                    pEdit = (EditText)findViewById(R.id.etDescription);
-                    gEdit = pEdit.getText().toString();
+                    EditText pEdit = (EditText)findViewById(R.id.etDescription);
+                    String gEdit = pEdit.getText().toString();
 
                     try{
-                        String rst = new task(sendmsg).execute(gEdit,"vision_write").get();
+                        String rst = new task().execute(gEdit).get();
                     }catch (Exception e){
                         e.printStackTrace();
                     }

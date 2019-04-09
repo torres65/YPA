@@ -12,46 +12,35 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class task extends AsyncTask<String, Void, String> {
-    String sendMsg, receiveMsg;
-    String serverip = "바뀔예정";
-
-    public task(String sendmsg){
-        this.sendMsg = sendmsg;
-    }
+    String sMsg, rMsg;
     @Override
-    protected String doInBackground(String... strings) {
-        try {
+    protected String doInBackground(String... strings){
+        try{
             String str;
-            URL url = new URL(serverip);
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            URL url = new URL("http:// 바뀜:18541/connectDB/connect.jsp");
+            HttpURLConnection conn = (HttpURLConnection)url.openConnection();
             conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
             conn.setRequestMethod("POST");
             OutputStreamWriter osw = new OutputStreamWriter(conn.getOutputStream());
-
-            if(sendMsg.equals("vision_write")){
-                sendMsg = "vision_write="+strings[0]+"&type="+strings[1];
-            }else if(sendMsg.equals("vision_list")){
-                sendMsg = "&type="+strings[0];
-            }
-
-            osw.write(sendMsg);
+            sMsg = "pEdit="+strings[0];
+            osw.write(sMsg);
             osw.flush();
-            if(conn.getResponseCode() == conn.HTTP_OK) {
+            if(conn.getResponseCode() == conn.HTTP_OK){
                 InputStreamReader tmp = new InputStreamReader(conn.getInputStream(), "UTF-8");
                 BufferedReader reader = new BufferedReader(tmp);
                 StringBuffer buffer = new StringBuffer();
-                while ((str = reader.readLine()) != null) {
+                while ((str = reader.readLine()) != null){
                     buffer.append(str);
                 }
-                receiveMsg = buffer.toString();
-            } else {
-                Log.i("통신 결과", conn.getResponseCode()+"에러");
+                rMsg = buffer.toString();
+            }else {
+                Log.i("통신결과", conn.getResponseCode()+"에러");
             }
-        } catch (MalformedURLException e) {
+        }catch(MalformedURLException e){
             e.printStackTrace();
-        } catch (IOException e) {
+        }catch(IOException e){
             e.printStackTrace();
         }
-        return receiveMsg;
+        return rMsg;
     }
 }
